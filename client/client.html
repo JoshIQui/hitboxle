@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Our simple HTTP server</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  
+  <script>
+    const displayPuzzle = async (response) => {
+      const content = document.querySelector('#content');
+
+      console.log(response);
+
+      let obj = await response.json();
+      let responseJSON = JSON.parse(JSON.stringify(obj));
+
+      content.innerHTML = '';
+
+      content.innerHTML += `<h3 id="input">Input: ${responseJSON.input}</h3>`;
+      content.innerHTML += `<h3 id="startup">Startup: ${responseJSON.startup}</h3>`;
+      content.innerHTML += `<p id="description">${responseJSON.description}</p>`;
+      content.innerHTML += `<p id="answerStatus"></p>`;
+    };
+
+    const handleResponse = async (response) => {
+      const content = document.querySelector('#content');
+      const answerStatus = content.querySelector('#answerStatus');
+
+      let obj = await response.json();
+      let responseJSON = JSON.parse(JSON.stringify(obj));
+
+      answerStatus.innerHTML = responseJSON.message;
+    };
+
+    const requestPuzzle = async () => {
+      // Set up the URL and method for getting the puzzle
+      const url = '/getPuzzle';
+      const method = "get";
+      
+      //Await our fetch response. Go to the URL, use the right method, and attach the headers.
+      let response = await fetch(url, {
+        method,
+        headers: {
+          'Accept': 'application/json' // For now, specify JSON, but this may not be needed
+        },
+      });
+
+      displayPuzzle(response);
+    };
+
+    const postAnswer = async (answerForm) => {
+      //Get the action and method from the name form
+      const action = answerForm.getAttribute('action');
+      const method = "post";
+
+      //Get the name and age from the name form
+      const userName = answerForm.querySelector('#usernameField');
+      const answer = answerForm.querySelector('#answerField');
+      const guesses = answerForm.querySelector('#guessesLabel');
+
+      //Create the data from the name and age
+      const formData = `userName=${userName.value}&answer=${answer.value}&guesses=${guesses.innerHTML}`;
+
+      //Make a fetch request and await a response. Set the method to
+      //the one provided by the form (POST). Set the headers. Content-Type
+      //is the type of data we are sending. Accept is the data we would like
+      //in response. Then add our FORM-URLENCODED string as the body of the request.
+      let response = await fetch(action, {
+        method: method,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'application/json',
+        },
+        body: formData
+      });
+
+      //Once we have a response, handle it.
+      handleResponse(response, true);
+    };
+
+    const init = () => {
+      //grab forms
+      const answerForm = document.querySelector('#answerForm');
+      
+      //Handles posts and update requests
+      const answer = (e) => {
+        e.preventDefault();
+        postAnswer(answerForm);
+        return false;
+      }
+      
+      //add event listener
+      answerForm.addEventListener('submit', postAnswer);
+      requestPuzzle();
+    };
+
+    window.onload = init;
+  </script>
+</head>
+<body>
+  <section id="top">
+    <h1>Hitboxle</h1>
+    <section id="content">
+        <!-- 
+        <h1 id="input"></h1>
+        <p id="description"></p>
+        <p id="startup"></p> 
+        -->
+    </section>
+    <hr>
+    <form id="answerForm" action="/checkAnswer" method="post">
+      <label for="name">Username: </label>
+      <input id="usernameField" type="text" name="name" />
+      <label for="answer">Answer: </label>
+      <input id="answerField" type="text" name="answer" />
+      <label for="guesses">Guesses: </label>
+      <label id="guessesLabel">0</label>
+      <input type="submit" value="Answer" />
+    </form>
+</body>
+</html>

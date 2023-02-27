@@ -1,0 +1,16 @@
+{
+    "1":
+    {
+        "answer": "sol badguy",
+        "input": "5K",
+        "startup": "3f",
+        "description": "Privileged 3 frame normal that does it all. At close range, 5K is an extremely fast knee with 3 frames of startup, making it X's fastest button and tied for the fastest normal in the game alongside  Chipp's 5P. This makes him extremely dangerous in scramble situations, allowing him to escape through small gaps in pressure (such as the 4 frame gap in  Ky's 5K > 6H), and punish conventionally safe moves. The fully extended kick is also quite fast at 4 frames, which combined with its tall hitbox and multiple cancel options results in a strong anti-air. On air hit, it floats the opponent for a reliable juggle. As a rule of thumb, it's more reliable to dash cancel the move when anti-airing with it, as additional landing recovery from air blocking will give X follow-up pressure while still allowing for a combo should it actually hit. If confirmed correctly, however, jump canceling the move will yield more damage, especially on Counter Hit. On a ground hit, it combos directly into 2D for a hard knockdown or a follow-up combo. It also combos into 6S on crouching opponents, but note that the second hit will whiff against crouching opponents if X isn't close enough, so don't use it as a poke from far away. 5K > 6S also functions as a frame trap, although 6S will lose to 3 frame attacks and trade with 4 frame attacks. Hits twice. Both hits are jump and dash cancelable."
+    },
+    "2":
+    {
+        "answer": "azrael",
+        "input": "236A",
+        "startup": "13-23f",
+        "description": "A forward-lunging punch that covers considerable space, making it X's premier gap closer/pressure ender, can only followup on counter hit. Its huge range and fast startup make it great for catching out an opponent and/or starting pressure. The slight frame advantage on normal block means you'll beat out most 5A mashes with your own 5A. If you initiate this attack from just beyond the distance players start a round at, you move forwards the maximum distance, but your opponent won't experience much pushback, leaving you up close to your opponent, where you generally want to be. If your opponent can't IB this move reliably, you can essentially snatch neutral at any time. If your opponent IBs you can backdash after safely usually, but if you get too predictable with it you'll start getting punished in other ways. Startup varies according to the distance to the opponent. Pushes opponent back about two character widths on hit or block unless performed at near max range or more. Can be used during a forward dash jump cancel to effectively extend its range."
+    }
+}
