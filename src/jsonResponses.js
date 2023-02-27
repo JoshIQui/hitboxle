@@ -68,7 +68,12 @@ const checkAnswer = (request, response, body) => {
     postUser({ username: body.username, guesses: body.guesses, completed: isCorrect});
 
     if (responseCode === 201) {
-        return respond(request, response, responseCode, { message: 'Created Successfully' });
+        if (isCorrect) {
+            return respond(request, response, responseCode, { message: 'Correct Answer' });
+        }
+        else {
+            return respond(request, response, responseCode, { message: 'Incorrect Answer' });
+        }
     }
 
     return respondMeta(request, response, responseCode);
