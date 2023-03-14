@@ -5,30 +5,61 @@
   <link rel="stylesheet" type="text/css" href="/style.css">
   
   <script>
+    // Animage link for updating users
+    let imageLink;
+
     const displayPuzzle = async (response) => {
       const content = document.querySelector('#content');
-
-      console.log(response);
 
       let obj = await response.json();
       let responseJSON = JSON.parse(JSON.stringify(obj));
 
+      imageLink = responseJSON.puzzle.image;
+
       content.innerHTML = '';
 
-      content.innerHTML += `<h3 id="input">Input: ${responseJSON.input}</h3>`;
-      content.innerHTML += `<h3 id="startup">Startup: ${responseJSON.startup}</h3>`;
-      content.innerHTML += `<p id="description">${responseJSON.description}</p>`;
+      content.innerHTML += `<h3 id="input">Input: ${responseJSON.puzzle.input}</h3>`;
+      content.innerHTML += `<h3 id="startup">Startup: ${responseJSON.puzzle.startup}</h3>`;
+      content.innerHTML += `<p id="description">${responseJSON.puzzle.description}</p>`;
+      content.innerHTML += `<p id="averageGuesses">Average Guesses: ${responseJSON.averageGuesses}</p>`;
       content.innerHTML += `<p id="answerStatus"></p>`;
+      content.innerHTML += `<img id="answerImage"></img>`;
     };
 
     const handleResponse = async (response) => {
       const content = document.querySelector('#content');
       const answerStatus = content.querySelector('#answerStatus');
+      let correct = false;
 
-      let obj = await response.json();
-      let responseJSON = JSON.parse(JSON.stringify(obj));
+      if (response.status === 204) {
+        correct = true;
+        answerStatus.innerHTML = "Correct. User Updated."
+      } else {
+        // Parse the response
+        let obj = await response.json();
+        let responseJSON = JSON.parse(JSON.stringify(obj));
 
-      answerStatus.innerHTML = responseJSON.message;
+        // Display the status of the answer
+        answerStatus.innerHTML = responseJSON.message;
+        
+        // If correct,
+        if (responseJSON.correct) {
+          // Display it
+          correct = true;
+          content.querySelector('#answerImage').src = responseJSON.image;
+        }
+      }
+
+      // Empty the answer field
+      document.querySelector('#answerField').value = '';
+
+      // Change the color of the text depending on if the user is correct or not
+      if (correct) {
+        answerStatus.style.color = "green";
+        document.querySelector('#guessesLabel').innerHTML = "0";
+      } else {
+        answerStatus.style.color = "red";
+      }
     };
 
     const requestPuzzle = async () => {
@@ -56,9 +87,10 @@
       const userName = answerForm.querySelector('#usernameField');
       const answer = answerForm.querySelector('#answerField');
       const guesses = answerForm.querySelector('#guessesLabel');
+      guesses.innerHTML = parseInt(guesses.innerHTML) + 1;
 
       //Create the data from the name and age
-      const formData = `userName=${userName.value}&answer=${answer.value}&guesses=${guesses.innerHTML}`;
+      const formData = `username=${userName.value}&answer=${answer.value}&guesses=${guesses.innerHTML}`;
 
       //Make a fetch request and await a response. Set the method to
       //the one provided by the form (POST). Set the headers. Content-Type
@@ -77,6 +109,24 @@
       handleResponse(response, true);
     };
 
+    generateNewPuzzle = async () => {
+      // Set up the URL and method for getting the puzzle
+      const url = '/changePuzzle';
+      const method = "get";
+      
+      //Await our fetch response. Go to the URL, use the right method, and attach the headers.
+      let response = await fetch(url, {
+        method,
+        headers: {
+          'Accept': 'application/json' // For now, specify JSON, but this may not be needed
+        },
+      });
+
+      console.log(response);
+
+      displayPuzzle(response);
+    }
+
     const init = () => {
       //grab forms
       const answerForm = document.querySelector('#answerForm');
@@ -87,9 +137,17 @@
         postAnswer(answerForm);
         return false;
       }
+
+      // Resets the puzzle when the button is pressed
+      const resetPuzzle = (e) => {
+        e.preventDefault();
+        generateNewPuzzle();
+        return false;
+      }
       
       //add event listener
-      answerForm.addEventListener('submit', postAnswer);
+      answerForm.addEventListener('submit', answer);
+      answerForm.addEventListener('reset', resetPuzzle)
       requestPuzzle();
     };
 
@@ -99,13 +157,7 @@
 <body>
   <section id="top">
     <h1>Hitboxle</h1>
-    <section id="content">
-        <!-- 
-        <h1 id="input"></h1>
-        <p id="description"></p>
-        <p id="startup"></p> 
-        -->
-    </section>
+    <section id="content"></section>
     <hr>
     <form id="answerForm" action="/checkAnswer" method="post">
       <label for="name">Username: </label>
@@ -115,6 +167,7 @@
       <label for="guesses">Guesses: </label>
       <label id="guessesLabel">0</label>
       <input type="submit" value="Answer" />
+      <input type="reset" value="Generate New Puzzle">
     </form>
 </body>
 </html>

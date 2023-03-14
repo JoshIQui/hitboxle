@@ -3,7 +3,6 @@ const url = require('url');
 const query = require('querystring');
 const htmlHandler = require('./htmlResponses.js');
 const jsonHandler = require('./jsonResponses.js');
-const puzzles = require('../data/puzzles.json');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
@@ -12,6 +11,7 @@ const urlStruct = {
     '/': htmlHandler.getIndex,
     '/style.css': htmlHandler.getCSS,
     '/getPuzzle': jsonHandler.getPuzzle,
+    '/changePuzzle': jsonHandler.getNewPuzzle,
     notFound: jsonHandler.notFound,
   },
   HEAD: {
@@ -103,10 +103,12 @@ const onRequest = (request, response) => {
   }
 };
 
+// Sets the puzzle to a new puzzle from the puzzles.json file
 const setNewPuzzle = () => {
-  const randNum = Math.floor(Math.random() * 2) + 1;
+  jsonHandler.setupPuzzle();
 
-  jsonHandler.setupPuzzle(puzzles[randNum]);
+  // Calls this function to set a new puzzle again in 1 hour
+  setInterval(setNewPuzzle, 3600000);
 };
 
 // start server

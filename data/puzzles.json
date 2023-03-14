@@ -1,16 +1,98 @@
 {
     "1":
     {
-        "answer": "sol badguy",
+        "character": "sol badguy",
         "input": "5K",
         "startup": "3f",
+        "image": "https://www.dustloop.com/wiki/images/thumb/c/c9/GGST_Sol_Badguy_5K.png/204px-GGST_Sol_Badguy_5K.png",
         "description": "Privileged 3 frame normal that does it all. At close range, 5K is an extremely fast knee with 3 frames of startup, making it X's fastest button and tied for the fastest normal in the game alongside  Chipp's 5P. This makes him extremely dangerous in scramble situations, allowing him to escape through small gaps in pressure (such as the 4 frame gap in  Ky's 5K > 6H), and punish conventionally safe moves. The fully extended kick is also quite fast at 4 frames, which combined with its tall hitbox and multiple cancel options results in a strong anti-air. On air hit, it floats the opponent for a reliable juggle. As a rule of thumb, it's more reliable to dash cancel the move when anti-airing with it, as additional landing recovery from air blocking will give X follow-up pressure while still allowing for a combo should it actually hit. If confirmed correctly, however, jump canceling the move will yield more damage, especially on Counter Hit. On a ground hit, it combos directly into 2D for a hard knockdown or a follow-up combo. It also combos into 6S on crouching opponents, but note that the second hit will whiff against crouching opponents if X isn't close enough, so don't use it as a poke from far away. 5K > 6S also functions as a frame trap, although 6S will lose to 3 frame attacks and trade with 4 frame attacks. Hits twice. Both hits are jump and dash cancelable."
     },
     "2":
     {
-        "answer": "azrael",
+        "character": "azrael",
         "input": "236A",
         "startup": "13-23f",
+        "image": "https://www.dustloop.com/wiki/images/thumb/6/6b/BBCP_Azrael_GustavBuster.png/210px-BBCP_Azrael_GustavBuster.png",
         "description": "A forward-lunging punch that covers considerable space, making it X's premier gap closer/pressure ender, can only followup on counter hit. Its huge range and fast startup make it great for catching out an opponent and/or starting pressure. The slight frame advantage on normal block means you'll beat out most 5A mashes with your own 5A. If you initiate this attack from just beyond the distance players start a round at, you move forwards the maximum distance, but your opponent won't experience much pushback, leaving you up close to your opponent, where you generally want to be. If your opponent can't IB this move reliably, you can essentially snatch neutral at any time. If your opponent IBs you can backdash after safely usually, but if you get too predictable with it you'll start getting punished in other ways. Startup varies according to the distance to the opponent. Pushes opponent back about two character widths on hit or block unless performed at near max range or more. Can be used during a forward dash jump cancel to effectively extend its range."
+    },
+    "3":
+    {
+        "character": "android 16",
+        "input": "236L/M/H",
+        "startup": "17/26/24f",
+        "image": "https://www.dustloop.com/wiki/images/thumb/e/e2/DBFZ_Android16_DynamiteDriver.png/315px-DBFZ_Android16_DynamiteDriver.png",
+        "description": "236L - The backbone of X's strike/throw mixup. An unreactable command grab at 17F of startup, but also because it's so fast, you'll need to delay cancel into this in order to tick throw. On hit, puts the opponent down into a sliding knockdown. While it can only be extended further with Supers, its damage is notably high for DBFZ standards. Doubles as a combo ender from j.2H or DR in the corner. 236M - M lunges forward after a few frames of startup. Covers 75% of the screen. Smash hit throws the opponent into the wall resulting in a wallbounce. Can be easily be followed up by 214M everywhere on screen, or combo into Super Dash in the corner. Non-Smash hit results in short sliding knockdown. Trucks through any and all projectiles and assists for a free confirm into 214X. It also doubles as their sliding knockdown combo ender in midscreen combos. 236H - H is almost identical to M version but comes out much faster and allows you to combo after without spending resources. Covers 85% of the screen. Better than the M version, but still not often used."
+    },
+    "4":
+    {
+        "character": "fused zamasu",
+        "input": "2H",
+        "startup": "15f",
+        "image": "https://www.dustloop.com/wiki/images/thumb/6/6b/DBFZ_Zamasu_2H.png/305px-DBFZ_Zamasu_2H.png",
+        "description": "Deceptive horizontal range. Large spherical hitbox above X's head, but will not hit crossups. Guardpoint against projectiles, along with head invul. An amazing move to just throw out because of all the invul. Even though it's slow, if it connects on block it can be cancelled into flight with absolutely zero downsides. Just make sure not to whiff it as it's very easily punishable."
+    },
+    "5":
+    {
+        "character": "jack o",
+        "input": "2D",
+        "startup": "10f",
+        "image": "https://www.dustloop.com/wiki/images/thumb/b/be/GGST_Jack-O_2D.png/315px-GGST_Jack-O_2D.png",
+        "description": "The low-profile and slightly more rewarding sister to 5H, but much worse on block and even worse on whiff. With similar offensive benefits as 5H, X's sweep is fast-moving (though a little slower than 5H), has some of their best combos on Counter Hit, with identical startup. Combined with its low-profile this is one of X's most powerful and aggressive mid-range options. Unfortunately, on whiff this move is also agonisingly slow to recover. Naturally on hit 2D gives some of X's best okizeme when cancelled into Summon Servant (Hold), however, this is also riskier on block as you cannot hitconfirm. This makes it a fantastic hitconfirm off 5K and 2K. In contrast to 5H, this is X's worst move on block. Its frametrap into Servant Shoot is backdashable, even throwable by some characters, and its poor blockstun and pushback leaves X in an extremely unfavourable RPS, often enabling new options by the opponent. While Recover Servant can help, it still leaves them dangerously close and unsafe. Launches Servants in a long arc. Whiffs on servants at their default height. Moves forward during startup and active frames."
+    },
+    "6":
+    {
+        "character": "millia rage",
+        "input": "j.236P",
+        "startup": "11f",
+        "image": "https://www.dustloop.com/wiki/images/thumb/b/b4/GGST_Millia_Rage_Bad_Moon.png/315px-GGST_Millia_Rage_Bad_Moon.png",
+        "description": "X's infamous instant overhead that's too fast to react to and can gapless block string after a jump canceled c.S. Midscreen, it allows X to meaty with 5K, f.S or 2D off it's soft knockdown. In the corner, it's possible to meaty with c.S or they can 2S/j.236P/Grab for a 3-way mixup. With 50 meter X can use RRC to make it a much more powerful tool. tk.236P > 88.RRC will either hit confirm into a combo or lock the opponent in block stun for options like land 2K vs crossup airdash j.H, or sameside airdash j.H and crossup 2K which are also possible but mashable. It is also one of X's air combo enders, but using Kapel safe jumps and c.S relaunches will usually give better oki follow-ups. Can be used on the ground with a Tiger Knee input (2369P or 2369P). Perfect TK j.236P has a startup of 15 frames and is active for 4 frames (hits twice). Alternatively X can use [6H(1) > j.236P] to use it on the ground, but this is slower and 6H can't whiff. Is the highest damage otg option for knockdowns."
+    },
+    "7":
+    {
+        "character": "ky kiske",
+        "input": "j.D",
+        "startup": "13f",
+        "image": "https://www.dustloop.com/wiki/images/thumb/2/2c/GGST_Ky_Kiske_jD.png/315px-GGST_Ky_Kiske_jD.png",
+        "description": "A lightning sigil that stalls X's air momentum. Good for making X's landing timing unpredictable or as a fairly large disjoint in air-to-air situations. As it's considered a projectile, j.D can intercept most incoming projectiles, but it is not an overhead. This move is special, jump, and air dash cancellable, making it an amazing combo filler. c.S > j.D > Air Dash is X's optimal punish combo starter, that leads to wallbreak at midscreen, as one example. It's also useful for converting off air to air normals. Launches grounded opponents on hit. Considered a projectile. Due to its projectile property, they don't actually experience regular strike hitstop, making it much more faster into cancels. Will often be plus on block when done descending, but otherwise very risky if rising since it whiffs on crouchers."
+    },
+    "8":
+    {
+        "character": "striker",
+        "input": "j.S",
+        "startup": "14f",
+        "image": "https://www.dustloop.com/wiki/images/thumb/3/3a/DNFD_Striker_jS.png/238px-DNFD_Striker_jS.png",
+        "description": "The star of the show. A divekick with incredible frame data. Extremely fast, aggressively angled, sweep whiff punisher supreme. Easily X's most threatening normal and the foundation of their gameplan. X can reverse beat out of their divekick, giving their tricky high/low mixups whenever they jumps. j.A is their high option, while j.B whiff into low is their low option. X can also j.A > land > 5A to begin a lengthy pressure sequence which can potentially force a guard break if they has enough mana. Either way, this move is extremely good in okizeme situations and makes X's offense loopable. Hits opponents OTG. In the corner, after any ender that grants a hard knockdown (usually 214M), doing another j.S after this OTG leads to a safejump. Can extend combos with both 5B and 5M, allowing for combos that can go from corner to corner. High hitstun on counter hit allows for an easy combo conversion."
+    },
+    "9":
+    {
+        "character": "hitman",
+        "input": "2M/624M",
+        "startup": "12f",
+        "image": "https://www.dustloop.com/wiki/images/thumb/2/23/DNFD_Hitman_623M.png/315px-DNFD_Hitman_623M.png",
+        "description": "Invincible reversal that hits on both sides, with good horizontal reach and poor vertical reach. In Awakening, Shattering Strike turns this into a menace, as on block X is -5 and on Roll they're -4 (0 with no Shattering Strike cancel). At certain spacings, this leads to the opponent's only punish option being DPing the gap, which is low reward and can whiff if X is spaced out since Shattering Strike is disjoint. If the opponent is close enough however, the gap between Bill Drill is 8 frames, allowing characters with sufficient reach on their 7f normals to punish regardless of Shattering Strike. If X's opponent is close enough midscreen, it's possible to roll through 623M on reaction to the superflash and punish from behind. This only works if the opponent can pass through him, as otherwise the third hit will punish their roll. This can also be done as an option select during a Safe Jump by rolling instead of blocking. When hitting at tip range of the second hit, the third can whiff and leave X punishable on hit."
+    },
+    "10":
+    {
+        "character": "ranger",
+        "input": "j.S",
+        "startup": "183f",
+        "image": "https://www.dustloop.com/wiki/images/thumb/6/6a/DNFD_Ranger_jS.png/315px-DNFD_Ranger_jS.png",
+        "description": "X lobs a grenade that bounces forward a few times before settling on the ground, exploding after a delay. Their strongest offensive tool by far, granting legitimate mix-ups and highly damaging combos while also potentially punishing reversals and breaking the opponent's combos as the grenade won't disappear if he gets hit. It's also very easy to set-up as both 4S and 6S->S guarantees it and it can be used to end just about any combo. Can also be used mid-combo after 4M or a crumple hit for a combo extension. Arguably the single most important move in their arsenal; its use and counter-play makes or breaks X's match-ups. Only one grenade can exist at a time, throwing another will remove the previous grenade. Detonates 165 frames after release. Persists if X is hit. Launches opponent on hit. The grenade immediately explodes on contact with another *opponent's* projectile. The X player's projectiles do not affect the grenade."
+    },
+    "11":
+    {
+        "character": "hakumen",
+        "input": "236236D",
+        "startup": "1f",
+        "image": "https://www.dustloop.com/wiki/images/thumb/6/66/BBCF_Hakumen_236236D_1.png/263px-BBCF_Hakumen_236236D_1.png",
+        "description": "A super version of X's parries. If activated, X dashes forward with a slash that hits everything that is head level or lower and is fully invincible throughout. This is a key defensive tool in most match-ups and a life changer with 4 Magatamas as the opponent has to play around it to avoid losing the momentum. Most notably, it is a fantastic tool to escape projectile-based okizeme and makes X one of the only character who can reliably escape some of them (Like Rachel's 22A. Midscreen, it can be comboed into 623A > 6A > 6B; In the corner, it can be comboed into 623A > IAD j.2A > j.C, then landing 5C > 6A > 6B."
+    },
+    "12":
+    {
+        "character": "valkenhayn",
+        "input": "5D/2D/j.D",
+        "startup": "7f",
+        "image": "https://www.dustloop.com/wiki/images/thumb/2/2c/BBCS_Valkenhayn_5D.png/315px-BBCS_Valkenhayn_5D.png",
+        "description": "Changes X into a wolf. X can freely transform in the air and on the ground. During this time X has a different set of moves from their human counterpart and gains greatly increased mobility. X lacks a forward dash in this form, but they can backdash. Pressing 5D again will transform back into human form. You can also input 4D to backdash while transforming."
     }
 }

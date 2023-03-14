@@ -1,34 +1,46 @@
+const puzzles = require('../data/puzzles.json');
+
 let puzzle = {};
 
-const setupPuzzle = (newPuzzle) => {
-  puzzle = newPuzzle;
-};
+let users = {};
 
-const users = {};
-
-const userStatistics = {
+let userStatistics = {
   averageGuesses: 0,
 };
 
+const setupPuzzle = () => {
+  const randNum = Math.floor(Math.random() * 12) + 1;
+
+  users = {};
+
+  userStatistics = {
+    averageGuesses: 0,
+  };
+
+  puzzle = puzzles[randNum];
+};
+
+// Currently changes only the average guesses
 const editUserStatistics = () => {
   let numberOfUsers = 0;
-  let averageGuesses = 0;
+  let totalGuesses = 0;
 
   Object.keys(users).forEach((key) => {
     numberOfUsers++;
-    averageGuesses += key.guesses;
+    totalGuesses += parseInt(users[key].guesses, 10);
   });
 
-  userStatistics.averageGuesses = averageGuesses / numberOfUsers;
+  userStatistics.averageGuesses = totalGuesses / numberOfUsers;
 };
 
+// Adds a correct user to the list
 const postUser = (object) => {
   users[object.username] = {
     username: object.username,
     guesses: object.guesses,
-    completed: object.completed,
   };
 
+  // Update user statistics
   editUserStatistics();
 };
 
@@ -43,8 +55,15 @@ const respondMeta = (request, response, status) => {
   response.end();
 };
 
+const getNewPuzzle = (request, response) => {
+  setupPuzzle();
+
+  respond(request, response, 200, { puzzle, averageGuesses: userStatistics.averageGuesses });
+};
+
+// Responds with the server's current puzzle object
 const getPuzzle = (request, response) => {
-  respond(request, response, 200, puzzle);
+  respond(request, response, 200, { puzzle, averageGuesses: userStatistics.averageGuesses });
 };
 
 const getPuzzleMeta = (request, response) => {
@@ -52,34 +71,37 @@ const getPuzzleMeta = (request, response) => {
 };
 
 const checkAnswer = (request, response, body) => {
-  if (!body.answer || !body.guesses) {
-    return respond(request, response, 400, { id: 'missingParams', message: 'Answer is required' });
+  // Check if any body parameters are missing
+  if (!body.answer || !body.username) {
+    return respond(request, response, 400, { id: 'missingParams', message: 'Username and Answer are required' });
   }
 
   let responseCode = 204; // Default response code of 204 (No Content)
 
-  // If the user does not exist on the list of users, set the status code to 201
-  if (!users[body.username]) {
-    responseCode = 201;
-  }
-
-  let isCorrect = false;
-
-  if (body.answer === puzzle.answer) {
-    isCorrect = true;
-  }
-
-  postUser({ username: body.username, guesses: body.guesses, completed: isCorrect });
-
-  if (responseCode === 201) {
-    if (isCorrect) {
-      return respond(request, response, responseCode, { message: 'Correct Answer' });
+  // If the answer is correct,
+  if (body.answer.trim().toLowerCase() === puzzle.character.trim().toLowerCase()) {
+    // If the user does not exist on the list of users, set the status code to 201
+    if (!users[body.username]) {
+      responseCode = 201;
     }
 
-    return respond(request, response, responseCode, { message: 'Incorrect Answer' });
-  }
+    // Add the user to the list of users
+    postUser({ username: body.username, guesses: body.guesses });
 
-  return respondMeta(request, response, responseCode);
+    // If a new user was added to the list,
+    if (responseCode === 201) {
+      // Respond with a correct
+      return respond(request, response, responseCode, {
+        message: 'Correct Answer. Nice job', correct: true, image: puzzle.image, guesses: body.guesses,
+      });
+    }
+
+    // If the user already existed, respond with code 204
+    // (the client will interpret this as a correct answer)
+    return respondMeta(request, response, responseCode);
+  }
+  // Defaults to responding with an incorrect
+  return respond(request, response, 200, { message: 'Incorrect Answer. Try again.', correct: false });
 };
 
 const notFound = (request, response) => {
@@ -96,6 +118,7 @@ const notFoundMeta = (request, response) => {
 };
 
 module.exports = {
+  getNewPuzzle,
   setupPuzzle,
   getPuzzle,
   getPuzzleMeta,
